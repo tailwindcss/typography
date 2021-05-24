@@ -13,6 +13,54 @@ module.exports = (theme) => ({
   DEFAULT: {
     css: [
       {
+        /*
+         * Begin variant override fields
+         *
+         * These are rules that override every variant for specific
+         * edge cases. These need to be !important because variant
+         * css classes are at a higher CSS specificity value than
+         * the generic `.prose` class.
+         */
+
+        'figure > *:not(figcaption)': {
+          marginTop: '0 !important',
+          marginBottom: '0 !important',
+        },
+        'hr + *': {
+          marginTop: '0 !important',
+        },
+        'h2 + *': {
+          marginTop: '0 !important',
+        },
+        'h3 + *': {
+          marginTop: '0 !important',
+        },
+        'h4 + *': {
+          marginTop: '0 !important',
+        },
+        'thead th:first-child': {
+          paddingLeft: '0 !important',
+        },
+        'thead th:last-child': {
+          paddingRight: '0 !important',
+        },
+        'tbody td:first-child': {
+          paddingLeft: '0 !important',
+        },
+        'tbody td:last-child': {
+          paddingRight: '0 !important',
+        },
+        '> :first-child': {
+          marginTop: '0 !important',
+        },
+        '> :last-child': {
+          marginBottom: '0 !important',
+        },
+
+        /*
+         * End variant override fields
+         */
+
         color: theme('colors.gray.700', defaultTheme.colors.gray[700]),
         maxWidth: '65ch',
         '[class~="lead"]': {
@@ -62,6 +110,7 @@ module.exports = (theme) => ({
           position: 'absolute',
           fontWeight: '400',
           color: theme('colors.gray.500', defaultTheme.colors.gray[500]),
+          left: '0',
         },
         'ul > li': {
           position: 'relative',
@@ -93,6 +142,7 @@ module.exports = (theme) => ({
         h1: {
           color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
           fontWeight: '800',
+          marginTop: '0',
         },
         h2: {
           color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
@@ -191,7 +241,6 @@ module.exports = (theme) => ({
         },
         h1: {
           fontSize: em(36, 16),
-          marginTop: '0',
           marginBottom: em(32, 36),
           lineHeight: round(40 / 36),
         },
@@ -223,10 +272,6 @@ module.exports = (theme) => ({
         figure: {
           marginTop: em(32, 16),
           marginBottom: em(32, 16),
-        },
-        'figure > *': {
-          marginTop: '0',
-          marginBottom: '0',
         },
         'figure figcaption': {
           fontSize: em(14, 16),
@@ -268,9 +313,6 @@ module.exports = (theme) => ({
         'ol > li': {
           paddingLeft: em(28, 16),
         },
-        'ol > li::before': {
-          left: '0',
-        },
         'ul > li': {
           paddingLeft: em(28, 16),
         },
@@ -304,18 +346,6 @@ module.exports = (theme) => ({
           marginTop: em(48, 16),
           marginBottom: em(48, 16),
         },
-        'hr + *': {
-          marginTop: '0',
-        },
-        'h2 + *': {
-          marginTop: '0',
-        },
-        'h3 + *': {
-          marginTop: '0',
-        },
-        'h4 + *': {
-          marginTop: '0',
-        },
         table: {
           fontSize: em(14, 16),
           lineHeight: round(24 / 14),
@@ -325,31 +355,11 @@ module.exports = (theme) => ({
           paddingBottom: em(8, 14),
           paddingLeft: em(8, 14),
         },
-        'thead th:first-child': {
-          paddingLeft: '0',
-        },
-        'thead th:last-child': {
-          paddingRight: '0',
-        },
         'tbody td': {
           paddingTop: em(8, 14),
           paddingRight: em(8, 14),
           paddingBottom: em(8, 14),
           paddingLeft: em(8, 14),
-        },
-        'tbody td:first-child': {
-          paddingLeft: '0',
-        },
-        'tbody td:last-child': {
-          paddingRight: '0',
-        },
-      },
-      {
-        '> :first-child': {
-          marginTop: '0',
-        },
-        '> :last-child': {
-          marginBottom: '0',
         },
       },
     ],
@@ -376,7 +386,6 @@ module.exports = (theme) => ({
         },
         h1: {
           fontSize: em(30, 14),
-          marginTop: '0',
           marginBottom: em(24, 30),
           lineHeight: round(36 / 30),
         },
@@ -408,10 +417,6 @@ module.exports = (theme) => ({
         figure: {
           marginTop: em(24, 14),
           marginBottom: em(24, 14),
-        },
-        'figure > *': {
-          marginTop: '0',
-          marginBottom: '0',
         },
         'figure figcaption': {
           fontSize: em(12, 14),
@@ -453,9 +458,6 @@ module.exports = (theme) => ({
         'ol > li': {
           paddingLeft: em(22, 14),
         },
-        'ol > li::before': {
-          left: '0',
-        },
         'ul > li': {
           paddingLeft: em(22, 14),
         },
@@ -489,18 +491,6 @@ module.exports = (theme) => ({
           marginTop: em(40, 14),
           marginBottom: em(40, 14),
         },
-        'hr + *': {
-          marginTop: '0',
-        },
-        'h2 + *': {
-          marginTop: '0',
-        },
-        'h3 + *': {
-          marginTop: '0',
-        },
-        'h4 + *': {
-          marginTop: '0',
-        },
         table: {
           fontSize: em(12, 14),
           lineHeight: round(18 / 12),
@@ -510,31 +500,11 @@ module.exports = (theme) => ({
           paddingBottom: em(8, 12),
           paddingLeft: em(12, 12),
         },
-        'thead th:first-child': {
-          paddingLeft: '0',
-        },
-        'thead th:last-child': {
-          paddingRight: '0',
-        },
         'tbody td': {
           paddingTop: em(8, 12),
           paddingRight: em(12, 12),
           paddingBottom: em(8, 12),
           paddingLeft: em(12, 12),
-        },
-        'tbody td:first-child': {
-          paddingLeft: '0',
-        },
-        'tbody td:last-child': {
-          paddingRight: '0',
-        },
-      },
-      {
-        '> :first-child': {
-          marginTop: '0',
-        },
-        '> :last-child': {
-          marginBottom: '0',
         },
       },
     ],
@@ -561,7 +531,6 @@ module.exports = (theme) => ({
         },
         h1: {
           fontSize: em(48, 18),
-          marginTop: '0',
           marginBottom: em(40, 48),
           lineHeight: round(48 / 48),
         },
@@ -593,10 +562,6 @@ module.exports = (theme) => ({
         figure: {
           marginTop: em(32, 18),
           marginBottom: em(32, 18),
-        },
-        'figure > *': {
-          marginTop: '0',
-          marginBottom: '0',
         },
         'figure figcaption': {
           fontSize: em(16, 18),
@@ -638,9 +603,6 @@ module.exports = (theme) => ({
         'ol > li': {
           paddingLeft: em(30, 18),
         },
-        'ol > li::before': {
-          left: '0',
-        },
         'ul > li': {
           paddingLeft: em(30, 18),
         },
@@ -674,18 +636,6 @@ module.exports = (theme) => ({
           marginTop: em(56, 18),
           marginBottom: em(56, 18),
         },
-        'hr + *': {
-          marginTop: '0',
-        },
-        'h2 + *': {
-          marginTop: '0',
-        },
-        'h3 + *': {
-          marginTop: '0',
-        },
-        'h4 + *': {
-          marginTop: '0',
-        },
         table: {
           fontSize: em(16, 18),
           lineHeight: round(24 / 16),
@@ -695,31 +645,11 @@ module.exports = (theme) => ({
           paddingBottom: em(12, 16),
           paddingLeft: em(12, 16),
         },
-        'thead th:first-child': {
-          paddingLeft: '0',
-        },
-        'thead th:last-child': {
-          paddingRight: '0',
-        },
         'tbody td': {
           paddingTop: em(12, 16),
           paddingRight: em(12, 16),
           paddingBottom: em(12, 16),
           paddingLeft: em(12, 16),
-        },
-        'tbody td:first-child': {
-          paddingLeft: '0',
-        },
-        'tbody td:last-child': {
-          paddingRight: '0',
-        },
-      },
-      {
-        '> :first-child': {
-          marginTop: '0',
-        },
-        '> :last-child': {
-          marginBottom: '0',
         },
       },
     ],
@@ -746,7 +676,6 @@ module.exports = (theme) => ({
         },
         h1: {
           fontSize: em(56, 20),
-          marginTop: '0',
           marginBottom: em(48, 56),
           lineHeight: round(56 / 56),
         },
@@ -778,10 +707,6 @@ module.exports = (theme) => ({
         figure: {
           marginTop: em(40, 20),
           marginBottom: em(40, 20),
-        },
-        'figure > *': {
-          marginTop: '0',
-          marginBottom: '0',
         },
         'figure figcaption': {
           fontSize: em(18, 20),
@@ -823,9 +748,6 @@ module.exports = (theme) => ({
         'ol > li': {
           paddingLeft: em(36, 20),
         },
-        'ol > li::before': {
-          left: '0',
-        },
         'ul > li': {
           paddingLeft: em(36, 20),
         },
@@ -859,18 +781,6 @@ module.exports = (theme) => ({
           marginTop: em(56, 20),
           marginBottom: em(56, 20),
         },
-        'hr + *': {
-          marginTop: '0',
-        },
-        'h2 + *': {
-          marginTop: '0',
-        },
-        'h3 + *': {
-          marginTop: '0',
-        },
-        'h4 + *': {
-          marginTop: '0',
-        },
         table: {
           fontSize: em(18, 20),
           lineHeight: round(28 / 18),
@@ -880,31 +790,11 @@ module.exports = (theme) => ({
           paddingBottom: em(16, 18),
           paddingLeft: em(12, 18),
         },
-        'thead th:first-child': {
-          paddingLeft: '0',
-        },
-        'thead th:last-child': {
-          paddingRight: '0',
-        },
         'tbody td': {
           paddingTop: em(16, 18),
           paddingRight: em(12, 18),
           paddingBottom: em(16, 18),
           paddingLeft: em(12, 18),
-        },
-        'tbody td:first-child': {
-          paddingLeft: '0',
-        },
-        'tbody td:last-child': {
-          paddingRight: '0',
-        },
-      },
-      {
-        '> :first-child': {
-          marginTop: '0',
-        },
-        '> :last-child': {
-          marginBottom: '0',
         },
       },
     ],
@@ -931,7 +821,6 @@ module.exports = (theme) => ({
         },
         h1: {
           fontSize: em(64, 24),
-          marginTop: '0',
           marginBottom: em(56, 64),
           lineHeight: round(64 / 64),
         },
@@ -963,10 +852,6 @@ module.exports = (theme) => ({
         figure: {
           marginTop: em(48, 24),
           marginBottom: em(48, 24),
-        },
-        'figure > *': {
-          marginTop: '0',
-          marginBottom: '0',
         },
         'figure figcaption': {
           fontSize: em(20, 24),
@@ -1008,9 +893,6 @@ module.exports = (theme) => ({
         'ol > li': {
           paddingLeft: em(40, 24),
         },
-        'ol > li::before': {
-          left: '0',
-        },
         'ul > li': {
           paddingLeft: em(40, 24),
         },
@@ -1044,18 +926,6 @@ module.exports = (theme) => ({
           marginTop: em(72, 24),
           marginBottom: em(72, 24),
         },
-        'hr + *': {
-          marginTop: '0',
-        },
-        'h2 + *': {
-          marginTop: '0',
-        },
-        'h3 + *': {
-          marginTop: '0',
-        },
-        'h4 + *': {
-          marginTop: '0',
-        },
         table: {
           fontSize: em(20, 24),
           lineHeight: round(28 / 20),
@@ -1065,31 +935,11 @@ module.exports = (theme) => ({
           paddingBottom: em(16, 20),
           paddingLeft: em(12, 20),
         },
-        'thead th:first-child': {
-          paddingLeft: '0',
-        },
-        'thead th:last-child': {
-          paddingRight: '0',
-        },
         'tbody td': {
           paddingTop: em(16, 20),
           paddingRight: em(12, 20),
           paddingBottom: em(16, 20),
           paddingLeft: em(12, 20),
-        },
-        'tbody td:first-child': {
-          paddingLeft: '0',
-        },
-        'tbody td:last-child': {
-          paddingRight: '0',
-        },
-      },
-      {
-        '> :first-child': {
-          marginTop: '0',
-        },
-        '> :last-child': {
-          marginBottom: '0',
         },
       },
     ],
